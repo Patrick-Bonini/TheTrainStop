@@ -90,6 +90,14 @@
             width: 100%;
         }
 
+        .img-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: inherit;
+        }
+
         /* --- NAVIGATION --- */
         nav {
             position: fixed;
@@ -388,6 +396,34 @@
             font-weight: 600;
         }
 
+        /* VISIT US SECTION */
+        .visit {
+            background-color: #FFFDF9;
+            padding: 3.5rem 5%;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .visit-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .visit-info h2 { margin-bottom: 0.5rem; }
+
+        .visit-info p { color: #4A4A4A; margin-bottom: 0.6rem; }
+
+        .visit-map iframe { border-radius: 8px; width: 100%; height: 100%; min-height: 260px; }
+
+        @media (max-width: 900px) {
+            .visit-grid { grid-template-columns: 1fr; }
+            .visit-map iframe { min-height: 220px; }
+        }
+
         /* 7. FOOTER */
         footer {
             background-color: var(--maroon);
@@ -543,10 +579,9 @@
         </div>
         <div class="hero-scroll-hint">Scroll to explore</div>
         <div class="hero-image img-placeholder" style="display: none;">
-            [ Cozy Station Café Image Placeholder ]
+            <img src="assets/atmosphere.jpg" alt="Cozy station café atmosphere" />
         </div>
     </section>
-
     <!-- INTRO SECTION -->
     <section id="intro">
         <div class="intro-text">
@@ -555,9 +590,9 @@
             <p>Relax with handcrafted espresso, tea, and a friendly, welcoming atmosphere that feels like home.</p>
         </div>
         <div class="intro-gallery">
-            <div class="img-placeholder">[ Food Image ]</div>
-            <div class="img-placeholder">[ Drinks Image ]</div>
-            <div class="img-placeholder">[ Vibe Image ]</div>
+            <div class="img-placeholder"><img src="assets/food_image.jpg" alt="Fresh food at The Train Stop" /></div>
+            <div class="img-placeholder"><img src="assets/drinks.jpg" alt="Coffee and drinks at The Train Stop" /></div>
+            <div class="img-placeholder"><img src="assets/vibe.jpg" alt="The Train Stop vibe and seating" /></div>
         </div>
     </section>
 
@@ -586,35 +621,7 @@
             </div>
         </div>
     </section>
-
-    <!-- ATMOSPHERE SECTION -->
-    <div class="atmosphere">
-        <div class="atmosphere-content">
-            <h2>A Place to Slow Down</h2>
-            <p>Our café is a relaxed, welcoming spot where people linger. Warm drinks, simple comfort food, and friendly faces make it easy to pause and enjoy the moment.</p>
-        </div>
-        <div class="atmosphere-image img-placeholder">
-            [ Unhurried Atmosphere Image ]
-        </div>
-    </div>
-
-    <!-- STORY SECTION -->
-    <section id="story" class="story">
-        <div class="story-image img-placeholder">
-            [ Tina the Mannequin / Vintage Station Image ]
-        </div>
-        <div class="story-content">
-            <h2>The Story Behind the Counter</h2>
-            <h3>A Grandfather’s Dream</h3>
-
-            <p>Tina is the heart of our shop, a mannequin with a big personality who inspired the name. She returned to Brockville to bring her grandfather’s handwritten recipes to life.</p>
-
-            <p>Her grandfather worked on the rails and collected recipes from his travels. Tina used his notes to build a menu of familiar, honest dishes and treats.</p>
-
-            <p>The Train Stop is more than food. It's a place for the community to meet, share stories, and slow down. Stop by for a bite and say hello to Tina.</p>
-        </div>
-    </section>
-
+    
     <!-- PARTNERS SECTION -->
     <section id="partners" class="partners">
         <h2>Crafted With Care</h2>
@@ -628,6 +635,51 @@
         </div>
     </section>
 
+    <!-- ATMOSPHERE SECTION -->
+    <div class="atmosphere">
+        <div class="atmosphere-content">
+            <h2>A Place to Slow Down</h2>
+            <p>Our café is a relaxed, welcoming spot where people linger. Warm drinks, simple comfort food, and friendly faces make it easy to pause and enjoy the moment.</p>
+        </div>
+        <div class="atmosphere-image img-placeholder">
+            <img src="assets/atmosphere.jpg" alt="Relaxed atmosphere inside The Train Stop" />
+        </div>
+    </div>
+
+    <!-- STORY SECTION -->
+    <section id="story" class="story">
+        <div class="story-image">
+            <img src="assets/tina.jpg" alt="Tina the mannequin" style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;" />
+        </div>
+        <div class="story-content">
+            <h2>The Story Behind the Counter</h2>
+            <h3>A Grandfather’s Dream</h3>
+
+            <p>Tina is the heart of our shop, a mannequin with a big personality who inspired the name. She returned to Brockville to bring her grandfather’s handwritten recipes to life.</p>
+
+            <p>Her grandfather worked on the rails and collected recipes from his travels. Tina used his notes to build a menu of familiar, honest dishes and treats.</p>
+
+            <p>The Train Stop is more than food. It's a place for the community to meet, share stories, and slow down. Stop by for a bite and say hello to Tina.</p>
+        </div>
+    </section>
+    
+
+    <!-- VISIT US SECTION -->
+    <section id="visit" class="visit">
+        <div class="visit-grid">
+            <div class="visit-info">
+                <h2>Visit Us</h2>
+                <p>Visit Us in the Historic Waterfront District</p>
+                <p>📍 50 King Street East, Brockville, ON K6V 1B1</p>
+                <p>We are located on the south side of King Street East, between Bethune Street and Park Street. If you hit the scenic Brock Trail or head down toward the harbor, you’ve gone just a block too far south!</p>
+                <p>🚗 Parking: Free and metered street parking is readily available along King Street East.</p>
+            </div>
+            <div class="visit-map">
+                <iframe src="https://www.google.com/maps?q=50+King+Street+East+Brockville+ON&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer id="contact">
         <div class="footer-grid">
@@ -636,12 +688,12 @@
                 <p>Find us in downtown Brockville.</p>
                 <p>Your one-stop shop for comfort along the way.</p>
             </div>
-            <div>
-                <h4>Contact Us</h4>
-                <p>50 King St. East</p>
-                <p>Brockville, ON K6V 1B1</p>
-                <p>Email: thetrainstop.ca</p>
-            </div>
+                <div>
+                    <h4>Contact Us</h4>
+                    <p>50 King Street East</p>
+                    <p>Brockville, ON K6V 1B1</p>
+                    <p>Email: thetrainstop.ca</p>
+                </div>
             <div>
                 <h4>Hours</h4>
                 <p>Monday – Sunday</p>
