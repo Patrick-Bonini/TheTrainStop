@@ -11,8 +11,8 @@
         /* --- DESIGN SYSTEM & VARIABLES --- */
         :root {
             --bg-light: #FAF7F2;       /* Warm cream */
-            --maroon: #7A2021;         /* Primary brand color */
-            --maroon-dark: #5A1516;
+            --maroon: #8E1F2A;         /* Primary brand color */
+            --maroon-dark: #67151D;
             --text-dark: #2C2C2C;      /* Charcoal for readability */
             --text-light: #FDFBF7;
             --border-color: #DCD3C6;
@@ -30,6 +30,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 8.5rem;
         }
 
         body {
@@ -86,8 +87,12 @@
             justify-content: center;
             color: #A39B8E;
             font-style: italic;
-            border-radius: 8px;
+            border-radius: 12px;
             width: 100%;
+            border: 8px solid var(--maroon);
+            padding: 0.35rem;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+            background-clip: padding-box;
         }
 
         .img-placeholder img {
@@ -99,25 +104,83 @@
         }
 
         /* --- NAVIGATION --- */
-        nav {
+        .top-bar {
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: rgba(250, 247, 242, 0.82);
-            backdrop-filter: blur(14px);
+            height: 2.15rem;
+            background-color: var(--maroon);
+            color: var(--text-light);
+            z-index: 1001;
+            padding: 0 5%;
+            font-size: 0.78rem;
+            letter-spacing: 0.02em;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-bar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .top-bar-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .top-bar-brand svg {
+            width: 0.9rem;
+            height: 0.9rem;
+            flex: 0 0 auto;
+        }
+
+        .top-bar-contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .top-bar-contact a {
+            color: var(--text-light);
+            text-decoration: none;
+            white-space: nowrap;
+            font-weight: 600;
+        }
+
+        .top-bar-contact a:hover {
+            text-decoration: underline;
+        }
+
+        nav {
+            position: fixed;
+            top: 2.15rem;
+            width: 100%;
+            background-color: #111111;
             padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22);
         }
 
         .logo {
             font-family: var(--font-heading);
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--maroon);
+            color: var(--text-light);
             text-decoration: none;
         }
 
@@ -128,13 +191,13 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-dark);
+            color: var(--text-light);
             font-weight: 600;
             transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--maroon);
+            color: #f0c9cc;
         }
 
         /* --- SECTIONS --- */
@@ -142,6 +205,10 @@
             padding: 6rem 5%;
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        section[id] {
+            scroll-margin-top: 8.5rem;
         }
 
         /* 1. HERO SECTION */
@@ -177,8 +244,8 @@
             position: absolute;
             inset: 0;
             background:
-                linear-gradient(120deg, rgba(44, 23, 18, 0.88) 0%, rgba(44, 23, 18, 0.72) 38%, rgba(44, 23, 18, 0.34) 100%),
-                linear-gradient(to bottom, rgba(17, 17, 17, 0.18), rgba(17, 17, 17, 0.5));
+                linear-gradient(120deg, rgba(44, 23, 18, 0.72) 0%, rgba(44, 23, 18, 0.56) 38%, rgba(44, 23, 18, 0.24) 100%),
+                linear-gradient(to bottom, rgba(17, 17, 17, 0.10), rgba(17, 17, 17, 0.34));
         }
 
         .hero-content {
@@ -187,7 +254,7 @@
             flex: 1;
             width: 100%;
             max-width: 1200px;
-            padding: 10rem 5% 6rem;
+            padding: 12rem 5% 6rem;
             display: flex;
             align-items: center;
         }
@@ -238,13 +305,13 @@
         }
 
         .hero .btn {
-            background-color: var(--text-light);
-            color: var(--maroon-dark);
-            border-color: var(--text-light);
+            background-color: var(--maroon);
+            color: var(--text-light);
+            border-color: var(--maroon);
         }
 
         .hero .btn:hover {
-            background-color: rgba(253, 251, 247, 0.86);
+            background-color: var(--maroon-dark);
         }
 
         .hero .btn-outline {
@@ -286,6 +353,8 @@
 
         .intro-text h2 {
             font-size: 2.5rem;
+            font-weight: 700;
+            color: #111111;
         }
 
         .intro-gallery {
@@ -306,6 +375,11 @@
 
         .menu-header h2 { font-size: 2.5rem; }
 
+        .menu-header h2 {
+            font-weight: 700;
+            color: #111111;
+        }
+
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -313,12 +387,13 @@
         }
 
         .menu-card {
-            background-color: #fff;
+            background-color: var(--maroon);
             padding: 2.5rem;
             border-radius: 8px;
-            border: 1px dashed var(--maroon);
+            border: 1px solid rgba(255, 255, 255, 0.18);
             text-align: center;
             transition: transform 0.3s ease;
+            color: var(--text-light);
         }
 
         .menu-card:hover {
@@ -329,6 +404,12 @@
         .menu-card h3 {
             font-size: 1.8rem;
             margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .menu-card p {
+            color: rgba(253, 251, 247, 0.92);
+            margin-bottom: 0;
         }
 
         /* 4. ATMOSPHERE SECTION */
@@ -336,15 +417,25 @@
             display: flex;
             align-items: center;
             gap: 4rem;
-            background-color: #F3EBE1;
+            background-color: var(--maroon);
             padding: 6rem 5%;
             max-width: 100%;
+            border-radius: 0;
         }
 
         .atmosphere-content {
             flex: 1;
             max-width: 600px;
             margin: 0 auto;
+        }
+
+        .atmosphere-content h2 {
+            font-weight: 700;
+            color: #111111;
+        }
+
+        .atmosphere-content p {
+            color: var(--text-light);
         }
 
         .atmosphere-image {
@@ -373,6 +464,7 @@
         }
 
         .story-content h2 { font-size: 3rem; margin-bottom: 0.5rem; }
+        .story-content h2 { font-weight: 700; color: #111111; }
         .story-content h3 { font-size: 1.5rem; color: var(--text-dark); margin-bottom: 2rem; font-family: var(--font-body); font-weight: 300; }
 
         /* 6. PARTNERS SECTION */
@@ -389,11 +481,16 @@
             margin-top: 3rem;
         }
 
+        .partners h2 {
+            font-weight: 700;
+            color: #111111;
+        }
+
         .partner-logo {
             font-family: var(--font-heading);
             font-size: 1.25rem;
-            color: #888;
-            font-weight: 600;
+            color: var(--maroon);
+            font-weight: 700;
         }
 
         /* VISIT US SECTION */
@@ -414,6 +511,11 @@
         }
 
         .visit-info h2 { margin-bottom: 0.5rem; }
+
+        .visit-info h2 {
+            font-weight: 700;
+            color: #111111;
+        }
 
         .visit-info p { color: #4A4A4A; margin-bottom: 0.6rem; }
 
@@ -439,10 +541,18 @@
             gap: 2rem;
         }
 
+        .footer-grid > div {
+            background: rgba(122, 31, 42, 0.92);
+            padding: 1.75rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+        }
+
         .footer-grid h4 {
             color: var(--text-light);
             font-size: 1.5rem;
             margin-bottom: 1rem;
+            font-weight: 700;
         }
 
         .footer-grid p {
@@ -451,16 +561,50 @@
             margin-bottom: 0.5rem;
         }
 
+        .footer-grid a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-grid a:hover {
+            text-decoration: underline;
+        }
+
         /* RESPONSIVE DESIGN */
         @media (max-width: 900px) {
             .hero, .atmosphere, .story {
                 flex-direction: column;
             }
+            .top-bar {
+                height: auto;
+                padding: 0.4rem 1rem;
+            }
+            .top-bar-inner {
+                justify-content: center;
+            }
+            .top-bar-contact {
+                justify-content: center;
+            }
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 0.85rem;
+            }
+            .nav-links a {
+                font-size: 0.9rem;
+            }
             .hero {
                 min-height: 92svh;
             }
             .hero-content {
-                padding: 7.5rem 5% 5rem;
+                padding: 10rem 5% 5rem;
                 align-items: flex-end;
             }
             .hero-copy {
@@ -482,16 +626,45 @@
             }
             .menu-grid, .intro-gallery { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; text-align: center; }
-            .nav-links { display: none; } /* Simplified for mobile snippet */
         }
 
         @media (max-width: 600px) {
+            .top-bar {
+                top: 0;
+                height: auto;
+                padding: 0.35rem 1rem;
+            }
+
+            .top-bar-inner {
+                gap: 0.35rem;
+                font-size: 0.7rem;
+            }
+
+            .top-bar-contact {
+                gap: 0.5rem;
+            }
+
             nav {
-                padding: 0.85rem 1rem;
+                top: 2.6rem;
+                padding: 0.75rem 1rem;
+                flex-direction: column;
+                align-items: center;
             }
 
             .logo {
                 font-size: 1.45rem;
+            }
+
+            .nav-links {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 0.65rem;
+            }
+
+            .nav-links a {
+                font-size: 0.82rem;
             }
 
             section {
@@ -499,8 +672,12 @@
                 padding-right: 1rem;
             }
 
+            section[id] {
+                scroll-margin-top: 10rem;
+            }
+
             .hero-content {
-                padding: 7rem 1rem 4.5rem;
+                padding: 9rem 1rem 4.5rem;
             }
 
             .hero-copy {
@@ -529,8 +706,8 @@
 
             .hero-overlay {
                 background:
-                    linear-gradient(180deg, rgba(44, 23, 18, 0.9) 0%, rgba(44, 23, 18, 0.76) 45%, rgba(44, 23, 18, 0.42) 100%),
-                    linear-gradient(to bottom, rgba(17, 17, 17, 0.18), rgba(17, 17, 17, 0.56));
+                    linear-gradient(180deg, rgba(44, 23, 18, 0.66) 0%, rgba(44, 23, 18, 0.50) 45%, rgba(44, 23, 18, 0.24) 100%),
+                    linear-gradient(to bottom, rgba(17, 17, 17, 0.08), rgba(17, 17, 17, 0.34));
             }
 
             .hero-scroll-hint {
@@ -539,6 +716,8 @@
 
             .intro-text h2,
             .menu-header h2,
+            .partners h2,
+            .atmosphere-content h2,
             .story-content h2 {
                 font-size: 2rem;
             }
@@ -546,6 +725,22 @@
     </style>
 </head>
 <body>
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="top-bar" role="note" aria-label="Contact and brand message">
+        <div class="top-bar-inner">
+            <div class="top-bar-brand">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" role="img">
+                    <path fill="currentColor" d="M12 2l1.4 4.7L18 5.2l-2.5 3.9L20 11l-4.8.8L16.4 17 12 14.3 7.6 17l1.2-5.2L4 11l4.5-1.9L6 5.2l4.6 1.5L12 2z"/>
+                </svg>
+                <span>Proudly Canadian-Sourced &amp; Made!</span>
+            </div>
+            <div class="top-bar-contact">
+                <a href="tel:+11111111111">+1 (111) 111-1111</a>
+                <a href="mailto:thetrainstop@example.com">thetrainstop@example.com</a>
+            </div>
+        </div>
+    </div>
 
     <!-- NAVIGATION -->
     <nav id="navbar">
@@ -586,8 +781,7 @@
     <section id="intro">
         <div class="intro-text">
             <h2>Welcome to The Train Stop</h2>
-            <p>We're a cozy station café in downtown Brockville. Come for fresh baked goods, soups, sandwiches, crepes, ice cream, and great coffee, made to enjoy at your pace.</p>
-            <p>Relax with handcrafted espresso, tea, and a friendly, welcoming atmosphere that feels like home.</p>
+            <p>We're a cozy station café in downtown Brockville. Come for fresh baked goods, soups, sandwiches, crepes, ice cream, and great coffee, made to enjoy at your pace. With plenty of gluten friendly, vegetarian, vegan options on hand, there is a seat at our table for everyone. Step inside, follow the smell of fresh baking, and leave the noise of the street behind you.</p>
         </div>
         <div class="intro-gallery">
             <div class="img-placeholder"><img src="assets/food_image.jpg" alt="Fresh food at The Train Stop" /></div>
@@ -629,8 +823,8 @@
         <div class="partners-logos">
             <span class="partner-logo">Mia Gelato</span>
             <span class="partner-logo">Gutsies</span>
-            <span class="partner-logo">L’Artisan</span>
-            <span class="partner-logo">NO GO Coffee</span>
+            <span class="partner-logo">L'Artisan</span>
+            <span class="partner-logo">NO Go Coffee</span>
             <span class="partner-logo">Sloane Tea</span>
         </div>
     </section>
@@ -639,7 +833,7 @@
     <div class="atmosphere">
         <div class="atmosphere-content">
             <h2>A Place to Slow Down</h2>
-            <p>Our café is a relaxed, welcoming spot where people linger. Warm drinks, simple comfort food, and friendly faces make it easy to pause and enjoy the moment.</p>
+            <p>The Train Stop is a relaxed, welcoming spot where people linger and step back in time. Warm drinks, simple comfort food, and friendly faces make it easy to pause and enjoy the moment.</p>
         </div>
         <div class="atmosphere-image img-placeholder">
             <img src="assets/atmosphere.jpg" alt="Relaxed atmosphere inside The Train Stop" />
@@ -649,10 +843,10 @@
     <!-- STORY SECTION -->
     <section id="story" class="story">
         <div class="story-image">
-            <img src="assets/tina.jpg" alt="Tina the mannequin" style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;" />
+            <img src="assets/tina.jpg" alt="Tina the mannequin" style="width:100%; height:100%; object-fit:cover; border-radius:12px; display:block; border: 8px solid var(--maroon); box-sizing: border-box;" />
         </div>
         <div class="story-content">
-            <h2>The Story Behind the Counter</h2>
+            <h2>The Story Behind</h2>
             <h3>A Grandfather’s Dream</h3>
 
             <p>Tina is the heart of our shop, a mannequin with a big personality who inspired the name. She returned to Brockville to bring her grandfather’s handwritten recipes to life.</p>
@@ -687,12 +881,17 @@
                 <h4>The Train Stop</h4>
                 <p>Find us in downtown Brockville.</p>
                 <p>Your one-stop shop for comfort along the way.</p>
+                <p>We look forward to welcoming you.</p>
+                <p>Stop in or call ahead anytime.</p>
             </div>
                 <div>
                     <h4>Contact Us</h4>
                     <p>50 King Street East</p>
                     <p>Brockville, ON K6V 1B1</p>
-                    <p>Email: thetrainstop.ca</p>
+                    <p>Phone: (unknown for now)</p>
+                    <p>Email: thetrainstop@example.com</p>
+                    <p><a href="https://www.facebook.com/profile.php?id=61589917627122" target="_blank" rel="noopener noreferrer">Facebook</a></p>
+                    <p><a href="https://www.instagram.com/thetrainstopstation?fbclid=IwY2xjawSAkeFleHRuA2FlbQIxMABicmlkETFHcDNINzNlWE50ZUxzUXJSc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHidIYcYVlJvbFW_ZORAj8zisErafGqYFJ5i2yE-FDGOGElMCooAdZ7jya4Dc_aem_ckp7RqAZwyVC2BmJ2skLMA" target="_blank" rel="noopener noreferrer">Instagram</a></p>
                 </div>
             <div>
                 <h4>Hours</h4>
